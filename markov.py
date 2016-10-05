@@ -53,18 +53,18 @@ def make_text(chains):
     """Takes dictionary of markov chains; returns random text."""
 
 
-    #link  - key from dictionary and a random word
-    # make a key out of second word of first key
+
 
     text = ""
 
     key = choice(chains.keys())
-    # words = [key[0], key[1]]
+
     text = key[0]
+
     while key in chains:
         text = text + " " + key[1]
-        random_words = choice(chains[key])
-        key = (key[1], random_words)
+        random_word = choice(chains[key])
+        key = (key[1], random_word)
 
 
     return text
