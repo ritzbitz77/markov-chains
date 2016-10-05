@@ -31,23 +31,23 @@ def make_chains(text_string):
         {('hi', 'there'): ['mary', 'juanita'], ('there', 'mary'): ['hi'], ('mary', 'hi': ['there']}
     """
 
-    text = open("green-eggs.txt").read() 
+    text_string = open("green-eggs.txt").read() 
 
     chains = {}
 
+    word = text_string.split()
 
-    for word in range(len(text) - 1):
-        word = text.split()
-        for word in text:
-            return "%s, %s" %(text[0], text[0 + 1])
-        
+    for text in range(len(word) - 2):
+        first_two_words = (word[text], word[text + 1])
+        next_word = word[text+ 2] 
 
-        # word = text.split()
-        # word1 = text[0]
-        # word2 = text[1]
-        # text.append(word + 1)
-        # return words
+        if first_two_words not in chains:
+            chains[first_two_words] = []
+    
+        chains[first_two_words].append(next_word)
 
+    return chains
+    
 
 def make_text(chains):
     """Takes dictionary of markov chains; returns random text."""
